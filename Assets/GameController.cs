@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     PlayerBar playerBar;
 
     void Start()
     {
         playerBar = new PlayerBar(1F);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

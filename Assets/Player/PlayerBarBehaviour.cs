@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerBarBehavior : MonoBehaviour
+public class PlayerBarBehaviour : MonoBehaviour
     {
         public PlayerBar playerBar { get; set; }
         public bool initialized = false;
@@ -19,13 +19,17 @@ public class PlayerBarBehavior : MonoBehaviour
 
             if (Input.GetKey("left"))
             {
-                playerBar.position = Math.Max(playerBar.position - playerBar.speed, - maxWidth / 2 + playerBar.width / 2);
+                transform.position = Vector3.MoveTowards(
+                    transform.position,
+                    new Vector3(-maxWidth/ 2 + playerBar.width / 2, transform.position.y),
+                    playerBar.speed * Time.deltaTime);
             }
             else if (Input.GetKey("right"))
             {
-                playerBar.position = Math.Min(playerBar.position + playerBar.speed, maxWidth / 2 - + playerBar.width / 2);
+                transform.position = Vector3.MoveTowards(
+                    transform.position,
+                    new Vector3(maxWidth/ 2 - playerBar.width / 2, transform.position.y),
+                    playerBar.speed * Time.deltaTime);
             }
-
-            playerBar.DrawLine();
         }
     }

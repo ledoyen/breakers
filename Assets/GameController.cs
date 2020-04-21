@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
@@ -9,6 +7,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         playerBar = new PlayerBar(1F);
-        new Ball(playerBar, 0.25F);
+        playerBar.Attach(new Ball(playerBar, 0.25F));
     }
 }

@@ -10,6 +10,7 @@ public class BallBehaviour : MonoBehaviour
         if (Input.GetKey("space"))
         {
             ball.inMotion = true;
+            ball.Detach();
         }
         if (ball.inMotion)
         {
